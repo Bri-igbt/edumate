@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import AboutUs from "@/pages/AboutUs.tsx";
 import Tutors from "@/pages/Tutors.tsx";
+import Footer from "@/components/Footer.tsx";
 
 const App = () => {
   return (
@@ -21,6 +22,8 @@ const App = () => {
             <Route path="/tutors" element={<Tutors />} />
           <Route path="*" element={<Error />} />
         </Routes>
+
+        <Footer />
       </div>
     </main>
   );

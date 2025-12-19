@@ -1,10 +1,21 @@
 import { Link } from "react-router-dom";
+import Title from "@/components/Title.tsx";
+import StepCard from "@/components/StepCard.tsx";
+import TestimonialCard from "@/components/TestimonialCard.tsx";
+import { Button } from "@/components/ui/button";
+import { Target, UserCheck, GraduationCap } from "lucide-react";
 
 const AboutUs = () => {
+  const testimonials = [
+    { name: "Aisha, Parent", quote: "Our daughter's confidence soared after just a few sessions!" },
+    { name: "David, Student", quote: "The personalized plan helped me ace my exams." },
+    { name: "Maria, Professional", quote: "Flexible scheduling made learning fit my work life." },
+  ];
+
   return (
-    <div className="text-gray-900">
+    <div className=" bg-gradient-to-br from-indigo-200 to-blue-600 text-gray-900  mt-20 pb-16">
       {/* Hero Section */}
-      <section className="bg-white">
+      <section className="">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div>
@@ -17,21 +28,19 @@ const AboutUs = () => {
                 accessible, safe, and truly effective.
               </p>
               <div className="flex gap-3">
-                <Link
-                  to="/"
-                  className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-md font-medium transition"
-                >
-                  Explore Tutors
+                <Link to="/tutors">
+                  <Button className="px-5 bg-indigo-200 hover:bg-indigo-500">
+                    Explore Tutors
+                  </Button>
                 </Link>
-                <Link
-                  to="/form"
-                  className="inline-block bg-gray-100 hover:bg-gray-200 text-gray-900 px-5 py-3 rounded-md font-medium transition"
-                >
-                  Contact Us
+                <Link to="/form">
+                  <Button variant="outline" className="px-5 border-0 bg-purple-500 hover:bg-purple-700 text-white">
+                    Contact Us
+                  </Button>
                 </Link>
               </div>
             </div>
-            <div className="bg-blue-50 rounded-xl p-8 border border-blue-100">
+            <div className=" bg-gradient-to-br from-purple-200 to-indigo-300 rounded-xl p-8 border border-blue-100">
               <ul className="grid grid-cols-2 gap-6">
                 <li className="text-center">
                   <p className="text-3xl font-bold text-blue-700">100+</p>
@@ -56,20 +65,22 @@ const AboutUs = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="bg-gray-50">
+      <section>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-2xl font-bold mb-3">Our Mission</h2>
-              <p className="text-gray-700 leading-relaxed">
-                We exist to empower learners with tailored, one‑to‑one support—bridging the
+              <Title title="Our Mission" />
+
+              <p className="text-gray-700 leading-relaxed mt-3 text-lg">
+                We exist to empower learners with tailored, one‑to‑one support bridging the
                 gap between curiosity and mastery. From exam prep to foundational skills,
                 we design every experience to match the learner’s pace and goals.
               </p>
             </div>
+
             <div>
-              <h2 className="text-2xl font-bold mb-3">Our Vision</h2>
-              <p className="text-gray-700 leading-relaxed">
+              <Title title="Our Vision" />
+              <p className="text-gray-700 leading-relaxed mt-3 text-lg">
                 A world where anyone can access outstanding tutoring within minutes—safe,
                 transparent, and results‑driven.
               </p>
@@ -79,67 +90,99 @@ const AboutUs = () => {
       </section>
 
       {/* How It Works */}
-      <section className="bg-white">
+      <section>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <h2 className="text-2xl font-bold mb-8">How it works</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-6 border rounded-lg">
-              <h3 className="font-semibold mb-2">1. Tell us your goals</h3>
-              <p className="text-gray-600 text-sm">
-                Choose your subject, level, and preferences. We’ll surface the best
-                matches for you.
-              </p>
-            </div>
-            <div className="p-6 border rounded-lg">
-              <h3 className="font-semibold mb-2">2. Pick your tutor</h3>
-              <p className="text-gray-600 text-sm">
-                Compare verified profiles by expertise, reviews, rating, and availability.
-              </p>
-            </div>
-            <div className="p-6 border rounded-lg">
-              <h3 className="font-semibold mb-2">3. Learn and track progress</h3>
-              <p className="text-gray-600 text-sm">
-                Book sessions, message safely, and monitor milestones as you improve.
-              </p>
-            </div>
+          <Title title="How it works" />
+          <div className="grid md:grid-cols-3 gap-8 mt-8">
+            <StepCard
+              step={1}
+              title="Tell us your goals"
+              desc="Choose your subject, level, and preferences. We’ll surface the best matches for you."
+              icon={Target}
+            />
+
+            <StepCard
+              step={2}
+              title="Pick your tutor"
+              desc="Compare verified profiles by expertise, reviews, rating, and availability."
+              icon={UserCheck}
+            />
+
+            <StepCard
+              step={3}
+              title="Learn and track progress"
+              desc="Book sessions, message safely, and monitor milestones as you improve."
+              icon={GraduationCap}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <Title title="What learners say" />
+
+          <div className="grid md:grid-cols-3 gap-6 mt-8">
+            {testimonials.map((t) => (
+              <TestimonialCard
+                  key={t.name}
+                  name={t.name}
+                  quote={t.quote}
+              />
+            ))}
           </div>
         </div>
       </section>
 
       {/* Values */}
-      <section className="bg-gray-50">
+      <section>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <h2 className="text-2xl font-bold mb-8">What we value</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-6 bg-white border rounded-lg">
+          <Title title="What we value" />
+
+          <div className="grid md:grid-cols-3 gap-8 mt-8 ">
+            <div className="p-6 bg-white border rounded-lg  bg-gradient-to-br from-purple-200 to-indigo-300 transition-colors">
               <h3 className="font-semibold mb-2">Quality</h3>
-              <p className="text-gray-600 text-sm">We vet tutors for skill, pedagogy, and professionalism.</p>
+              <p className="text-gray-600 text-sm">
+                  We vet tutors for skill, pedagogy, and professionalism.
+              </p>
             </div>
-            <div className="p-6 bg-white border rounded-lg">
+
+            <div className="p-6 bg-white border rounded-lg  bg-gradient-to-br from-purple-200 to-indigo-300 transition-colors">
               <h3 className="font-semibold mb-2">Safety</h3>
-              <p className="text-gray-600 text-sm">Privacy‑first messaging, verified profiles, and clear guidelines.</p>
+              <p className="text-gray-600 text-sm">
+                  Privacy‑first messaging, verified profiles, and clear guidelines.
+              </p>
             </div>
-            <div className="p-6 bg-white border rounded-lg">
+
+            <div className="p-6 bg-white border rounded-lg  bg-gradient-to-br from-purple-200 to-indigo-300 transition-colors">
               <h3 className="font-semibold mb-2">Results</h3>
-              <p className="text-gray-600 text-sm">Goal‑oriented plans with measurable progress each week.</p>
+              <p className="text-gray-600 text-sm">
+                  Goal‑oriented plans with measurable progress each week.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="bg-white">
+      <section>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="rounded-xl border p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6 bg-blue-50 border-blue-100">
+          <div className="rounded-xl border p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6 bg-gradient-to-br from-purple-200 to-indigo-300 transition-colors border-blue-100">
             <div>
-              <h3 className="text-xl font-bold mb-2">Ready to find your perfect tutor?</h3>
-              <p className="text-gray-700 text-sm">Browse profiles, filter by verified status, rating, and more.</p>
+              <h3 className="text-xl font-bold mb-2">
+                  Ready to find your perfect tutor?
+              </h3>
+
+              <p className="text-gray-700 text-sm">
+                  Browse profiles, filter by verified status, rating, and more.
+              </p>
             </div>
-            <Link
-              to="/tutors"
-              className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-md font-medium transition"
-            >
-              Get Started
+
+            <Link to="/tutors">
+              <Button className="px-5 bg-indigo-200 hover:bg-indigo-500">
+                  Get Started
+              </Button>
             </Link>
           </div>
         </div>

@@ -1,10 +1,11 @@
-import { CloseIcon, UserIcon } from "@/assets/svgs";
+import { CloseIcon } from "@/assets/svgs";
 import toggleSvg from "@/assets/toggle.svg";
 import { OPENSIDEBAR } from "@/constants/actionTypes";
 import MyContext from "@/contexts";
 import { navItems } from "@/utils/data";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import {SignedIn, SignedOut, SignInButton, UserButton} from "@clerk/clerk-react";
 
 const Navbar = () => {
     const { state, dispatch } = useContext(MyContext);
@@ -21,11 +22,11 @@ const Navbar = () => {
             <div className="rounded-xl flex justify-between items-center pl-5 pr-2 py-4 text-sm max-w-7xl mx-auto">
                 <Link to="/">
                     <h1
-                        className={`text-black text-4xl text-base font-bold pt-2 whitespace-nowrap cursor-pointer ${
+                        className={`text-black text-4xl  font-bold pt-2 whitespace-nowrap cursor-pointer ${
                             !state.isSidebarOpen ? "ml-5" : "ml-0"
                         }`}
                     >
-                        EDUMATE
+                        <h1 className="text-2xl font-bold text-gray-900">Edu<span className="text-purple-600">Mate</span></h1>
                     </h1>
                 </Link>
                 {!state.isSidebarOpen && (
@@ -50,10 +51,17 @@ const Navbar = () => {
                         ))}
                     </div>
                 )}
+
                 {!state.isSidebarOpen ? (
-                    <div className="flex justify-start items-center cursor-pointer">
-                        <UserIcon />
-                        <h3 className="text-sm font-semibold px-2">Hello, Mariam</h3>
+                    <div className="flex justify-start items-center">
+                        <SignedOut>
+                            <div className="bg-purple-500 hover:bg-purple-700 hover:shadow-sm px-6 py-2 font-semibold rounded-lg text-black/75 cursor-pointer">
+                                <SignInButton />
+                            </div>
+                        </SignedOut>
+                        <SignedIn>
+                            <UserButton />
+                        </SignedIn>
                     </div>
                 ) : openDropdown ? (
                     <>
@@ -77,31 +85,6 @@ const Navbar = () => {
                                 className="h-8 w-8 text-[#222]"
                             />
                         </button>
-                    </div>
-                )}
-                {state.isSidebarOpen && openDropdown && (
-                    <div className="absolute z-50 top-20 left-1/2 transform -translate-x-1/2 w-5/6 bg-gray-100 flex flex-col justify-center items-center md:hidden rounded-xl mt-5 border-2 border-gray-100">
-                        {navItems.map((item, idx) => (
-                            <Link to={item.link} key={idx} onClick={() => setOpenDropdown(false)}>
-                                <ul
-                                    className="flex flex-col items-center gap-5 text-white py-3 list-none cursor-pointer"
-                                    onMouseOver={() => setSelectedIndex(idx)}
-                                    onMouseLeave={() => setSelectedIndex(null)}
-                                >
-                                    <li
-                                        className={`text-sm font-medium leading-4 no-underline mx-1 text-black py-2 px-2 ${
-                                            selectedIndex === idx && "border-b-2 border-gray-900"
-                                        }`}
-                                    >
-                                        {item.name}
-                                    </li>
-                                </ul>
-                            </Link>
-                        ))}
-                        <div className="flex justify-start items-center my-2 text-black cursor-pointer">
-                            <UserIcon />
-                            <h3 className="text-sm font-semibold px-2">Hello, Mariam</h3>
-                        </div>
                     </div>
                 )}
             </div>

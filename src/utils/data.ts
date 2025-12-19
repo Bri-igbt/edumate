@@ -1,4 +1,16 @@
 import { DataProps, FiltersProps, NavProps } from "@/interface";
+import {
+    Award,
+    BookOpen,
+    Clock,
+    Globe,
+    GraduationCap,
+    Laptop,
+    MessageCircle,
+    ShieldCheck,
+    Sparkles,
+    Star
+} from "lucide-react";
 
 export const UniqueID = () => Math.floor(Math.random() * 1000000).toString();
 
@@ -24,6 +36,74 @@ export const navItems: NavProps[] = [
         link: "/form",
     },
 ];
+
+export const subjectData = [
+    { name: "Mathematics", icon: GraduationCap },
+    { name: "English", icon: BookOpen },
+    { name: "Science", icon: Laptop },
+    { name: "Coding", icon: Sparkles },
+    { name: "Languages", icon: Globe },
+    { name: "Test Prep", icon: Award },
+];
+
+export const features = [
+    {
+        title: "Verified Tutors",
+        desc: "Every tutor is identity-checked and skills-vetted so you can learn with confidence.",
+        icon: ShieldCheck,
+    },
+    {
+        title: "1:1 Personalized Plans",
+        desc: "Structured learning paths tailored to your goals, pace, and schedule.",
+        icon: BookOpen,
+    },
+    {
+        title: "Top-rated Pros",
+        desc: "Browse detailed profiles with reviews, ratings, specialties, and availability.",
+        icon: Star,
+    },
+    {
+        title: "Flexible & On‑Demand",
+        desc: "Book, reschedule, or cancel sessions with just a few taps—learn anywhere.",
+        icon: Clock,
+    },
+    {
+        title: "Safe Messaging",
+        desc: "Keep conversations secure and organized in one place with our in‑app chat.",
+        icon: MessageCircle,
+    },
+    {
+        title: "Online or In‑Person",
+        desc: "Find local experts or learn online with interactive tools and resources.",
+        icon: Globe,
+    },
+];
+
+
+
+export const faqs = [
+    {
+        id: "item-1",
+        q: "How do I find the right tutor?",
+        a: "Use filters for subject, level, budget, and schedule. Compare profiles, reviews, and ratings to pick the best match.",
+    },
+    {
+        id: "item-2",
+        q: "Are tutors background checked?",
+        a: "Yes. We verify identity and conduct checks where applicable. Verified profiles are clearly labeled.",
+    },
+    {
+        id: "item-3",
+        q: "Can I learn online?",
+        a: "Absolutely. Many tutors offer online sessions with interactive tools and shared resources.",
+    },
+    {
+        id: "item-4",
+        q: "What's the pricing?",
+        a: "Tutors set their own rates. You'll see transparent pricing on each profile before you book.",
+    },
+];
+
 
 export const filtersData: FiltersProps[] = [
     {
