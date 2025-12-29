@@ -190,6 +190,7 @@ const Profiles = () => {
                                                         isActive={pageNum === currentPage}
                                                         onClick={(e) => {
                                                             e.preventDefault();
+                                                            // @ts-ignore
                                                             setCurrentPage(pageNum);
                                                         }}
                                                         className="min-h-9 min-w-9 text-sm"
