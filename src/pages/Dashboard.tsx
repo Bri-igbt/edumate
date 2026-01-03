@@ -28,73 +28,79 @@ const Dashboard = () => {
     <div className="text-gray-900 mt-20 pb-16">
       {/* Hero */}
         <section className="bg-gradient-to-br from-indigo-200 to-blue-600">
-            <div className="flex flex-col lg:flex-row min-h-[600px]">
-                <div className="lg:w-1/2 flex items-center">
-                    <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-0 w-full">
-                        <div>
-                            <div className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-medium text-blue-700 border-blue-200 bg-blue-50 mb-4">
-                                <Sparkles className="size-4" />
-                                Personalized learning that actually fits you
+            <div className="flex flex-col md:flex-row min-h-[620px]">
+
+                {/* LEFT CONTENT */}
+                <div className="flex w-full md:w-1/2 items-center justify-center px-4 sm:px-6 lg:px-12 py-12 md:py-0">
+                    <div className="max-w-2xl w-full text-center md:text-left">
+
+                        <div className="inline-flex mx-auto md:mx-0 items-center gap-2 rounded-full border px-3 py-1 text-xs font-medium text-blue-700 border-blue-200 bg-blue-50 mb-4">
+                            <Sparkles className="size-4" />
+                            Personalized learning that actually fits you
+                        </div>
+
+                        <h1 className="text-black text-2xl sm:text-3xl lg:text-5xl font-extrabold leading-tight mb-4">
+                            Find{" "}
+                            <span className="text-purple-600">trusted tutors</span>{" "}
+                            for any subject, level, or goal
+                        </h1>
+
+                        <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-6">
+                            Edumate connects learners with vetted experts for 1:1 coaching online or in-person.
+                            Build confidence, master skills, and track real progress.
+                        </p>
+
+                        <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-3">
+                            <Link to="/tutors">
+                                <Button className="w-full sm:w-auto px-5 bg-indigo-200 hover:bg-indigo-500">
+                                    Browse Tutors
+                                </Button>
+                            </Link>
+
+                            <Link to="/form">
+                                <Button
+                                    variant="outline"
+                                    className="w-full sm:w-auto px-5 border-0 bg-purple-500 hover:bg-purple-700"
+                                >
+                                    Post a Learning Request
+                                </Button>
+                            </Link>
+                        </div>
+
+                        <div className="mt-6 flex flex-wrap justify-center md:justify-start gap-4 text-sm text-gray-600">
+                            <div className="flex items-center gap-2">
+                                <ShieldCheck className="size-4 text-green-600" />
+                                Verified profiles
                             </div>
 
-                            <h1 className="text-black text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-4">
-                                Find {" "}
-                                <span className='text-purple-600'>trusted tutors</span>
-                                {" "}for any subject, level, or goal
-                            </h1>
-
-                            <p className="text-gray-600 leading-relaxed mb-6">
-                                Edumate connects learners with vetted experts for 1:1 coaching online or in‑person.
-                                Build confidence, master skills, and track real progress.
-                            </p>
-
-                            <div className="flex flex-col sm:flex-row gap-3">
-                                <Link to="/tutors">
-                                    <Button className="px-5 bg-indigo-200 hover:bg-indigo-500">
-                                        Browse Tutors
-                                    </Button>
-                                </Link>
-
-                                <Link to="/form">
-                                    <Button variant="outline" className="px-5 border-0 bg-purple-500 hover:bg-purple-700">
-                                        Post a Learning Request
-                                    </Button>
-                                </Link>
+                            <div className="flex items-center gap-2">
+                                <Star className="size-4 text-yellow-500" />
+                                4.7/5 avg. rating
                             </div>
 
-                            <div className="mt-6 flex flex-wrap items-center gap-6 text-sm text-gray-600">
-                                <div className="flex items-center gap-2">
-                                    <ShieldCheck className="size-4 text-green-600" />
-                                    Verified profiles
-                                </div>
-
-                                <div className="flex items-center gap-2">
-                                    <Star className="size-4 text-yellow-500" />
-                                    4.7/5 avg. rating
-                                </div>
-
-                                <div className="flex items-center gap-2">
-                                    <Clock className="size-4 text-blue-600" />
-                                    Learn on your schedule
-                                </div>
+                            <div className="flex items-center gap-2">
+                                <Clock className="size-4 text-blue-600" />
+                                Learn on your schedule
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="lg:w-1/2 relative h-[400px] lg:h-auto">
-                    <div className="absolute inset-0">
-                        <img
-                            src='https://img.freepik.com/premium-photo/mom-helping-son-with-homework-desk_116547-102185.jpg?semt=ais_hybrid&w=740&q=80'
-                            alt="Mom helping son with homework"
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
+                {/* RIGHT IMAGE */}
+                <div className="relative w-full md:w-1/2 h-[360px] sm:h-[440px] md:h-auto">
+                    <img
+                        src="https://img.freepik.com/premium-photo/mom-helping-son-with-homework-desk_116547-102185.jpg?semt=ais_hybrid&w=740&q=80"
+                        alt="Mom helping son with homework"
+                        className="absolute inset-0 w-full h-full object-cover"
+                    />
                 </div>
+
             </div>
         </section>
 
-      {/* Features */}
+
+
+        {/* Features */}
       <section className="bg-gray-50 pb-16">
             <Title
                 title='EVERYTHING YOU NEED TO LEARN BETTER'
